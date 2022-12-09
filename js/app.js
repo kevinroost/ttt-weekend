@@ -41,12 +41,13 @@ let player
 //    game's status on the page.
 const squareEls = document.querySelectorAll('.sqr')
 const messageEl = document.querySelector('#message')
+const boardEl = document.querySelector('.board')
 console.log(squareEls);
 console.log(messageEl);
 
 /*----------------------------- Event Listeners -----------------------------*/
 
-
+boardEl.addEventListener('click', handleClick)// 6b) Attach an event listener to the game board
 
 /*-------------------------------- Functions --------------------------------*/
 // 3c) Set the `board` variable to an array containing nine `null`s to represent empty squares.
@@ -85,27 +86,15 @@ function updateBoard() {  // 4b) Create a function called `updateBoard`.
   }
 }
 
+function handleClick(evt) {  // 6a) Create a function called `handleClick`. It will have an `evt`parameter.
+  if (evt.target.className != 'sqr') return
+  const sqIdx = evt.target.id.slice(-1)// 6c) Obtain the index of the square that was clicked
+  if (board[sqIdx] || winner === true) return// 6d) If the `board` has a value at the `sqIdx` or if `winner` is not `null`, immediately `return` 
+
+  console.log(evt.target.className);
+}
+
 init()
-
-
-// Step 6 - Handle a player clicking a square with a `handleClick` function
-
-  // 6a) Create a function called `handleClick`. It will have an `evt`
-  //     parameter.
-
-  // 6b) Attach an event listener to the game board (you can do this to each
-  //     one of the existing `squareEls` with a `forEach` loop OR add a new
-  //     cached element reference that will allow you to take advantage of 
-  //     event bubbling). On the `'click'` event, it should call the 
-  //    `handleClick` function you created in 6a.
-
-  // 6c) Obtain the index of the square that was clicked by "extracting" the 
-  //     index from an `id` assigned to the target element in the HTML. Assign 
-  //     this to a constant called `sqIdx`.
-
-  // 6d) If the `board` has a value at the `sqIdx`, immediately `return`  
-  //     because that square is already taken. Also, if `winner` is not `null`
-  //     immediately `return` because the game is over.
 
 
 // Step 6.1 - `placePiece`
