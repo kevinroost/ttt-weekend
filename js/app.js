@@ -49,7 +49,7 @@ console.log(messageEl);
 /*----------------------------- Event Listeners -----------------------------*/
 
 boardEl.addEventListener('click', handleClick)// 6b) Attach an event listener to the game board
-resetBtn.addEventListener('click', init)
+resetBtn.addEventListener('click', init)// Step 7 - Create Reset functionality
 
 /*-------------------------------- Functions --------------------------------*/
 // 3c) Set the `board` variable to an array containing nine `null`s to represent empty squares.
@@ -141,7 +141,7 @@ init()
   //       render that updated state to the user by calling the `render` 
   //       function that we wrote earlier.
 
-// Step 7 - Create Reset functionality
+
 
   // 7a) Add a reset button to the HTML document.
 
