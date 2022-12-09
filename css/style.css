@@ -32,8 +32,8 @@ div {
   
 }
 
-#reset-btn :hover {
-
+#reset-btn:hover {
+  background-color: rgb(88, 88, 88);
 }
 
 #sq0, #sq1, #sq2, #sq3, #sq4, #sq5 {
