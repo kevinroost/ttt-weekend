@@ -2,7 +2,6 @@
 
 
 
-
 /*---------------------------- Variables (state) ----------------------------*/
 // 1a) Use a variable named `board` to represent the state of the squares on
 //     the board.
@@ -17,6 +16,7 @@ let board
 let turn
 let winner //boolean
 let tie //boolean
+let player
 
 
 
@@ -45,7 +45,15 @@ function init() {  // 3a) Create a function called `init`.
   render()  // 3g) Call a function called `render` at the end of the `init` function.
 }
 function render() {  // 4a) Create a function called `render`, then set it aside for now.
+  player = turn === -1 ? 'X' : 'O'
+  updateBoard()
+  updateMessage()
+}
 
+function updateMessage () {  // 4d) Create a function called `updateMessage`
+  messageEl.textContent = winner === false && tie === false ? `${player}, it's your turn!` 
+  : winner === false && tie === true ? `It's a tie!`
+  : `Congratulations! ${player} wins!`
 }
 
 function updateBoard() {  // 4b) Create a function called `updateBoard`.
@@ -62,15 +70,9 @@ init()
 
 updateBoard()
 
-  // 4c) In the `updateBoard` function, loop over `board` and for each element:
-  //     - Use the current index of the iteration to access the corresponding 
-  //       square in the `squareEls` array.
-  //     - Style that square however you wish, dependent on the value  
-  //       contained in the current cell being iterated over (`-1`, `1`, or
-  //       `null`). To keep it simple, start with just putting a letter in 
-  //       each square depending on what the the value of each cell is.
 
-  // 4d) Create a function called `updateMessage`
+
+
   
   // 4e) In the `updateMessage` function, render a message based on the 
   //     current game state:
