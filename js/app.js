@@ -91,16 +91,25 @@ function placePiece(idx) {
   console.log(board);
 }
 
-function checkForTie () {
+function checkForTie () {//Check if the `board` array still contains any `null` elements. If it does, we can leave `tie` as false. Otherwise, set `tie` to true.
   const hasNull = board.some(function(idx) {
     return idx === null
   })
   if (hasNull) {
     tie = false
   } else tie = true
-  console.log(tie);
 }
 
+function checkForWinner() {
+  const winner = winningCombos.some(function(combo) {
+    total = 0
+    combo.forEach(i => {
+      total += board[i]
+    })
+    let absTotal = Math.abs(total)
+    return absTotal === 3
+  })
+}
 
 function handleClick(evt) {  // 6a) Create a function called `handleClick`. It will have an `evt`parameter.
   if (evt.target.className != 'sqr') return
@@ -108,6 +117,7 @@ function handleClick(evt) {  // 6a) Create a function called `handleClick`. It w
   if (board[sqIdx] || winner === true) return// 6d) If the `board` has a value at the `sqIdx` or if `winner` is not `null`, immediately `return` 
   placePiece(sqIdx)
   checkForTie()
+  checkForWinner()
 }
 
 init()
@@ -117,8 +127,7 @@ init()
 
   // 6.2a) Create a function named `checkForTie`.
 
-  // 6.2b) Check if the `board` array still contains any `null` elements. If
-  //       it does, we can leave `tie` as false. Otherwise, set `tie` to true.
+  // 6.2b) 
 
 
 // 6.3 - `checkForWinner`
