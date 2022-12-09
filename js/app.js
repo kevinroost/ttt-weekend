@@ -42,12 +42,14 @@ let player
 const squareEls = document.querySelectorAll('.sqr')
 const messageEl = document.querySelector('#message')
 const boardEl = document.querySelector('.board')
+const resetBtn = document.querySelector('#reset-btn')
 console.log(squareEls);
 console.log(messageEl);
 
 /*----------------------------- Event Listeners -----------------------------*/
 
 boardEl.addEventListener('click', handleClick)// 6b) Attach an event listener to the game board
+resetBtn.addEventListener('click', init)
 
 /*-------------------------------- Functions --------------------------------*/
 // 3c) Set the `board` variable to an array containing nine `null`s to represent empty squares.
@@ -59,18 +61,18 @@ function init() {  // 3a) Create a function called `init`.
   render()  // 3g) Call a function called `render` at the end of the `init` function.
 }
 function render() {  // 4a) Create a function called `render`, then set it aside for now.
-  player = turn === -1 ? 'X' : 'O'
   updateBoard()
   updateMessage()
 }
-  // 4e) In the `updateMessage` function, render a message based on the 
-  //     current game state:
-  //     - If both `winner` and `tie` have a value of false (meaning the game 
-  //       is still in progress), render whose turn it is.
-  //     - If `winner` is false, but `tie` is true, render a tie message.
-  //     - Otherwise, render a congratulatory message to the player that has 
-  //       won.
+// 4e) In the `updateMessage` function, render a message based on the 
+//     current game state:
+//     - If both `winner` and `tie` have a value of false (meaning the game 
+//       is still in progress), render whose turn it is.
+//     - If `winner` is false, but `tie` is true, render a tie message.
+//     - Otherwise, render a congratulatory message to the player that has 
+//       won.
 function updateMessage () {  // 4d) Create a function called `updateMessage`
+  player = turn === -1 ? 'X' : 'O'
   messageEl.textContent = winner === false && tie === false ? `${player}, it's your turn!` 
   : winner === false && tie === true ? `It's a tie!`
   : `Congratulations! ${player} wins!`
@@ -82,7 +84,7 @@ function updateBoard() {  // 4b) Create a function called `updateBoard`.
       squareEls[i].textContent = 'X'
     } else if (board[i] === 1) {
       squareEls[i].textContent = 'O'
-    }
+    } else squareEls[i].textContent = null
   }
 }
 
@@ -119,6 +121,7 @@ function handleClick(evt) {  // 6a) Create a function called `handleClick`. It w
   checkForTie()
   checkForWinner()
   switchPlayerTurn()
+  render()
 }
 
 function switchPlayerTurn() {//switches the turn based on the 'winner' boolean
