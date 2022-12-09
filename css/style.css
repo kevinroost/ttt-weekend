@@ -9,6 +9,7 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
+  font-family: Papyrus, fantasy;
 }
 
 section.board {
@@ -29,7 +30,7 @@ div {
   color: white;
   margin-top: 20px;
   width: 100px;
-  
+  border-radius: 5px;
 }
 
 #reset-btn:hover {
