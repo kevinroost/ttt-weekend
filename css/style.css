@@ -1,5 +1,6 @@
 body {
-    background-color: rgb(232, 199, 199);
+    background-color: black;
+    color: white;
 	/* Use a system font, if none are available use an available sans-sarif   font */
 	font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
 		Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
@@ -18,21 +19,27 @@ section.board {
 }
 
 div {
-  /* border: 3px solid black; */
   font-size: 8vmin;
   text-align: center;
   vertical-align: middle;
 }
 
 #reset-btn {
-  margin-top: 10px;
+  background-color: black;
+  color: white;
+  margin-top: 20px;
   width: 100px;
+  
+}
+
+#reset-btn :hover {
+
 }
 
 #sq0, #sq1, #sq2, #sq3, #sq4, #sq5 {
-  border-bottom: 3px solid black;
+  border-bottom: 3px solid white;
 }
 
 #sq0, #sq1, #sq3, #sq4, #sq6, #sq7 {
-  border-right: 3px solid black;
+  border-right: 3px solid white;
 }
