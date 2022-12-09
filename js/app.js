@@ -49,7 +49,13 @@ function render() {  // 4a) Create a function called `render`, then set it aside
   updateBoard()
   updateMessage()
 }
-
+  // 4e) In the `updateMessage` function, render a message based on the 
+  //     current game state:
+  //     - If both `winner` and `tie` have a value of false (meaning the game 
+  //       is still in progress), render whose turn it is.
+  //     - If `winner` is false, but `tie` is true, render a tie message.
+  //     - Otherwise, render a congratulatory message to the player that has 
+  //       won.
 function updateMessage () {  // 4d) Create a function called `updateMessage`
   messageEl.textContent = winner === false && tie === false ? `${player}, it's your turn!` 
   : winner === false && tie === true ? `It's a tie!`
@@ -74,13 +80,7 @@ updateBoard()
 
 
   
-  // 4e) In the `updateMessage` function, render a message based on the 
-  //     current game state:
-  //     - If both `winner` and `tie` have a value of false (meaning the game 
-  //       is still in progress), render whose turn it is.
-  //     - If `winner` is false, but `tie` is true, render a tie message.
-  //     - Otherwise, render a congratulatory message to the player that has 
-  //       won.
+
 
   // 4f) Invoke both the `updateBoard` and the `updateMessage` functions
   //     inside of your `render` function.
