@@ -1,5 +1,17 @@
 /*-------------------------------- Constants --------------------------------*/
+  // 5a) In a constant called `winningCombos` define the eight possible winning 
+  //     combinations as an array of arrays.
 
+const winningCombos = [
+  [0, 1, 2],
+  [3, 4, 5],
+  [6, 7, 8],
+  [0, 3, 6],
+  [1, 4, 7],
+  [2, 5, 8],
+  [0, 4, 8],
+  [2, 4, 6],
+]
 
 
 /*---------------------------- Variables (state) ----------------------------*/
@@ -17,6 +29,7 @@ let turn
 let winner //boolean
 let tie //boolean
 let player
+
 
 
 
@@ -73,22 +86,6 @@ function updateBoard() {  // 4b) Create a function called `updateBoard`.
 }
 
 init()
-
-updateBoard()
-
-
-
-
-  
-
-
-  // 4f) Invoke both the `updateBoard` and the `updateMessage` functions
-  //     inside of your `render` function.
-
-// Step 5 - Define the required constants
-
-  // 5a) In a constant called `winningCombos` define the eight possible winning 
-  //     combinations as an array of arrays.
 
 
 // Step 6 - Handle a player clicking a square with a `handleClick` function
