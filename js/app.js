@@ -86,23 +86,31 @@ function updateBoard() {  // 4b) Create a function called `updateBoard`.
   }
 }
 
+function placePiece(idx) {
+  board[idx] = turn// 6.1b) Update the `board` array at the `idx` so that it is equal to the current value of `turn`.
+  console.log(board);
+}
+
+function checkForTie () {
+  const hasNull = board.some(function(idx) {
+    return idx === null
+  })
+  if (hasNull) {
+    tie = false
+  } else tie = true
+  console.log(tie);
+}
+
+
 function handleClick(evt) {  // 6a) Create a function called `handleClick`. It will have an `evt`parameter.
   if (evt.target.className != 'sqr') return
   const sqIdx = evt.target.id.slice(-1)// 6c) Obtain the index of the square that was clicked
   if (board[sqIdx] || winner === true) return// 6d) If the `board` has a value at the `sqIdx` or if `winner` is not `null`, immediately `return` 
-
-  console.log(evt.target.className);
+  placePiece(sqIdx)
+  checkForTie()
 }
 
 init()
-
-
-// Step 6.1 - `placePiece`
-
-  // 6.1a) Create a function named placePiece that accepts an `idx` parameter.
-
-  // 6.1b) Update the `board` array at the `idx` so that it is equal to the 
-  //       current value of `turn`.
 
 
 // 6.2 - `checkForTie`
