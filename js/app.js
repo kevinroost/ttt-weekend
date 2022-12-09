@@ -100,8 +100,8 @@ function checkForTie () {//Check if the `board` array still contains any `null` 
   } else tie = true
 }
 
-function checkForWinner() {
-  const winner = winningCombos.some(function(combo) {
+function checkForWinner() {//checks for winner. if the board matches one of the winning combos, winner = true
+  winner = winningCombos.some(function(combo) {
     total = 0
     combo.forEach(i => {
       total += board[i]
@@ -118,53 +118,14 @@ function handleClick(evt) {  // 6a) Create a function called `handleClick`. It w
   placePiece(sqIdx)
   checkForTie()
   checkForWinner()
+  switchPlayerTurn()
+}
+
+function switchPlayerTurn() {//switches the turn based on the 'winner' boolean
+  turn = (winner) ? turn : (turn * -1)
 }
 
 init()
-
-
-// 6.2 - `checkForTie`
-
-  // 6.2a) Create a function named `checkForTie`.
-
-  // 6.2b) 
-
-
-// 6.3 - `checkForWinner`
-
-  // 6.3a) Create a function called `checkForWinner`
-
-  // 6.3b) Determine if a player has won using one of the two options below.
-  //       Option 1 is a more elegant method that takes advantage of the 
-  //       `winningCombos` array you wrote above in step 5. Option 2 might 
-  //       be a little simpler to comprehend, but you'll need to write more 
-  //       code. This option won't take advantage of the winningCombos array, 
-  //       but using it as a reference will help you build a solution.
-  //       Ensure you choose only one path.
-
-  //       Option 1) Loop through each of the winning combination arrays 
-  //       defined in the `winningCombos` array. Total up the three board 
-  //       positions using the three indexes in the current combo. Convert 
-  //       the total to an absolute value (convert any negative total to 
-  //       positive). If the total equals 3, we have a winner, and can set 
-  //       `winner` to true.
-
-  //       Option 2) For each one of the winning combinations you wrote in 
-  //       step 5, find the total of each winning combination. Convert the 
-  //       total to an absolute value (convert any negative total to 
-  //       positive). If the total equals 3, we have a winner, and can set 
-  //       `winner` to true.
-
-
-// 6.4 - `switchPlayerTurn`
-
-  // 6.4a) Create a function called `switchPlayerTurn`.
-
-  // 6.4b) If `winner` is true, return out of the function - we don’t need 
-  //       to switch the turn anymore!
-
-  // 6.4c) If `winner` is false, change the turn by multiplying `turn` by 
-  //       `-1` (this flips a `1` to `-1`, and vice-versa).
 
 
 // 6.5 - Tying it all together
