@@ -34,6 +34,17 @@ div {
   vertical-align: middle;
 }
 
+#name {
+  border-radius: 5px;
+}
+
+#name[type='text'] {
+  font-family: Papyrus, fantasy;
+  font-weight:bolder;
+  width: 200px;
+  height: 30px;
+}
+
 .button {
   background-color: black;
   color: white;
@@ -52,4 +63,8 @@ div {
 
 #sq0, #sq1, #sq3, #sq4, #sq6, #sq7 {
   border-right: 3px solid white;
+}
+
+.sqr, .button:hover {
+  cursor: pointer;
 }
