@@ -75,7 +75,7 @@ function render() {  // 4a) Create a function called `render`, then set it aside
 }
 
 function getName() {
-  if (!(name)) {
+  if (!nameInput.value) {
     messageEl.textContent = messageEl.textContent + "?"
     return
   }

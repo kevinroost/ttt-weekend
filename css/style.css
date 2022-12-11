@@ -17,6 +17,11 @@ section.board {
   grid-template-rows: repeat(3, 10vmin);
   grid-template-columns: repeat(3, 10vmin);
   grid-gap: 0vmin;
+  margin: 30px;
+}
+
+h1 {
+  margin-top: 30px;
 }
 
 #message {
@@ -29,15 +34,15 @@ div {
   vertical-align: middle;
 }
 
-#reset-btn {
+.button {
   background-color: black;
   color: white;
-  margin-top: 20px;
+  margin: 20px;
   width: 100px;
   border-radius: 5px;
 }
 
-#reset-btn:hover {
+.button:hover {
   background-color: rgb(88, 88, 88);
 }
 
