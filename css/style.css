@@ -19,6 +19,10 @@ section.board {
   grid-gap: 0vmin;
 }
 
+#message {
+  font-size: 20px;
+}
+
 div {
   font-size: 8vmin;
   text-align: center;

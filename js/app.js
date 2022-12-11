@@ -33,6 +33,7 @@ let name
 
 
 
+
 /*------------------------ Cached Element References ------------------------*/
 // 2a) In a constant called `squareEls`, store the nine elements 
 //    representing the squares on the page.
@@ -57,6 +58,9 @@ nameBtn.addEventListener('click', getName)
 /*-------------------------------- Functions --------------------------------*/
 // 3c) Set the `board` variable to an array containing nine `null`s to represent empty squares.
 function init() {  // 3a) Create a function called `init`.
+  nameInput.style.display = 'block'
+  nameInput.value = null
+  nameBtn.style.display = 'block'
   board = [null, null, null, null, null, null, null, null, null, ]
   turn = -1  // 3d) Set the `turn` to `1` - which will represent player X.
   winner = false // 3e) Set the `winner` to false.
@@ -71,6 +75,10 @@ function render() {  // 4a) Create a function called `render`, then set it aside
 }
 
 function getName() {
+  if (!(name)) {
+    messageEl.textContent = messageEl.textContent + "?"
+    return
+  }
   name = nameInput.value
   updateMessage()
   nameInput.style.display = 'none'
@@ -128,6 +136,10 @@ function checkForWinner() {//checks for winner. if the board matches one of the 
 }
 
 function handleClick(evt) {  // 6a) Create a function called `handleClick`. It will have an `evt`parameter.
+  if (!(name)) {
+    messageEl.textContent = messageEl.textContent + "?"
+    return
+  }
   if (evt.target.className != 'sqr') return
   const sqIdx = evt.target.id.slice(-1)// 6c) Obtain the index of the square that was clicked
   if (board[sqIdx] || winner === true) return// 6d) If the `board` has a value at the `sqIdx` or if `winner` is not `null`, immediately `return` 
@@ -136,6 +148,7 @@ function handleClick(evt) {  // 6a) Create a function called `handleClick`. It w
   checkForWinner()
   switchPlayerTurn()
   render()
+  console.log(messageEl.style.fontsize);
 }
 
 function switchPlayerTurn() {//switches the turn based on the 'winner' boolean
@@ -143,7 +156,6 @@ function switchPlayerTurn() {//switches the turn based on the 'winner' boolean
 }
 
 init()
-
 
 // 6.5 - Tying it all together
 
