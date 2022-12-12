@@ -29,7 +29,8 @@ let turn
 let winner //boolean
 let tie //boolean
 let player
-let name
+let name1
+let name2
 
 
 
@@ -65,7 +66,7 @@ function init() {  // 3a) Create a function called `init`.
   turn = -1  // 3d) Set the `turn` to `1` - which will represent player X.
   winner = false // 3e) Set the `winner` to false.
   tie = false  // 3f) Set `tie` to false.
-  messageEl.textContent = `What's your name?`
+  messageEl.textContent = `Player 1: What's your name?`
   updateBoard()  // 3g) Call a function called `render` at the end of the `init` function.
 }
 
@@ -78,12 +79,16 @@ function getName() {
   if (!nameInput.value) {
     messageEl.textContent = messageEl.textContent + "?"
     return
+  } else if (!name1) {
+    name1 = nameInput.value
+    nameInput.value = null
+    messageEl.textContent = `Player 2: What's your name`
+  } else {
+    name2 = nameInput.value
+    nameInput.style.display = 'none'
+    nameBtn.style.display = 'none'
+    updateMessage()
   }
-  name = nameInput.value
-  updateMessage()
-  nameInput.style.display = 'none'
-  nameBtn.style.display = 'none'
-  console.log(name);
 }
 
 // 4e) In the `updateMessage` function, render a message based on the 
@@ -94,7 +99,7 @@ function getName() {
 //     - Otherwise, render a congratulatory message to the player that has 
 //       won.
 function updateMessage () {  // 4d) Create a function called `updateMessage`
-  player = turn === -1 ? name : 'the Computer'
+  player = turn === -1 ? name1 : name2
   messageEl.textContent = winner === false && tie === false ? `It's ${player}'s turn!` 
   : winner === false && tie === true ? `It's a tie!`
   : `Congratulations! ${player} wins!`
@@ -136,7 +141,7 @@ function checkForWinner() {//checks for winner. if the board matches one of the 
 }
 
 function handleClick(evt) {  // 6a) Create a function called `handleClick`. It will have an `evt`parameter.
-  if (!(name)) {
+  if (!name1 || !name2) {
     messageEl.textContent = messageEl.textContent + "?"
     return
   }
