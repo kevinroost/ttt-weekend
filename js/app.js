@@ -62,6 +62,8 @@ function init() {  // 3a) Create a function called `init`.
   nameInput.style.display = 'block'
   nameInput.value = null
   nameBtn.style.display = 'block'
+  name1 = null
+  name2 = null
   board = [null, null, null, null, null, null, null, null, null, ]
   turn = -1  // 3d) Set the `turn` to `1` - which will represent player X.
   winner = false // 3e) Set the `winner` to false.
@@ -82,7 +84,7 @@ function getName() {
   } else if (!name1) {
     name1 = nameInput.value
     nameInput.value = null
-    messageEl.textContent = `Player 2: What's your name`
+    messageEl.textContent = `Player 2: What's your name?`
   } else {
     name2 = nameInput.value
     nameInput.style.display = 'none'
