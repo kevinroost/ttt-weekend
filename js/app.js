@@ -31,6 +31,7 @@ let tie //boolean
 let player
 let name1
 let name2
+let rendered
 
 
 
@@ -75,6 +76,7 @@ function init() {  // 3a) Create a function called `init`.
 function render() {  // 4a) Create a function called `render`, then set it aside for now.
   updateBoard()
   updateMessage()
+  rendered = true
 }
 
 function getName() {
@@ -89,6 +91,7 @@ function getName() {
     name2 = nameInput.value
     nameInput.style.display = 'none'
     nameBtn.style.display = 'none'
+    boardEl.classList.add('goTime')
     updateMessage()
   }
 }
@@ -110,6 +113,7 @@ function updateMessage () {  // 4d) Create a function called `updateMessage`
 function updateBoard() {  // 4b) Create a function called `updateBoard`.
   for (let i = 0; i <= 8; i++) { //update squares on the board based on the status of each item in the array 'board'
     if (board[i] === -1) {
+      console.log(squareEls[i]);
       squareEls[i].textContent = 'X'
     } else if (board[i] === 1) {
       squareEls[i].textContent = 'O'
@@ -147,7 +151,7 @@ function handleClick(evt) {  // 6a) Create a function called `handleClick`. It w
     messageEl.textContent = messageEl.textContent + "?"
     return
   }
-  if (evt.target.className != 'sqr') return
+  if (!evt.target.classList.contains('sqr')) return
   const sqIdx = evt.target.id.slice(-1)// 6c) Obtain the index of the square that was clicked
   if (board[sqIdx] || winner === true) return// 6d) If the `board` has a value at the `sqIdx` or if `winner` is not `null`, immediately `return` 
   placePiece(sqIdx)
@@ -155,7 +159,6 @@ function handleClick(evt) {  // 6a) Create a function called `handleClick`. It w
   checkForWinner()
   switchPlayerTurn()
   render()
-  console.log(messageEl.style.fontsize);
 }
 
 function switchPlayerTurn() {//switches the turn based on the 'winner' boolean
