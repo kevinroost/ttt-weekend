@@ -35,7 +35,7 @@ const boardEl = document.querySelector('.board')
 const resetBtn = document.querySelector('#reset-btn')
 const nameInput = document.querySelector('#name')
 const nameBtn = document.querySelector('#submit-name')
-console.log(squareEls);
+console.log('Square Elements', squareEls);
 console.log(messageEl);
 
 /*----------------------------- Event Listeners -----------------------------*/
